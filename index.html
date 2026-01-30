@@ -51,30 +51,39 @@
                     </tbody>
             </table>
         </div>
-
-        <footer class="mt-8 flex justify-center items-center space-x-8 text-[11px] text-slate-500">
-            <div class="flex items-center">
-                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span> 
-                慶典進行中
+        <footer class="mt-8 text-center">
+            <div class="flex justify-center items-center space-x-8 text-[11px] text-slate-500">
+                <div class="flex items-center">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span> 
+                    慶典進行中
+                </div>
+                <div class="flex items-center">
+                    <span class="w-2 h-2 bg-slate-500 rounded-full mr-2"></span> 
+                    冷卻休息中
+                </div>
             </div>
-            <div class="flex items-center">
-                <span class="w-2 h-2 bg-slate-600 rounded-full mr-2"></span> 
-                冷卻休息中
+
+            <div class="mt-4 text-[12px] text-slate-400 tracking-wider">
+                * 目前僅「迦樓羅」伺服器完成時間校對，其餘伺服器待完成後更新
             </div>
         </footer>
     </div>
 
     <script>
-        // 使用你提供的四組時間 Epoch
+        // 各伺服器開始時間定準 Epoch
         const SERVERS = [
-            { name: "迦樓羅", epoch: 1769392800000 },
+            // time checked
+            { name: "迦樓羅", epoch: 1769796000000 },
+        ];
+            // not check 
+        /*
             { name: "巴哈姆特", epoch: 1769479200000 },
             { name: "泰坦", epoch: 1769652000000 },
             { name: "利維坦", epoch: 1769479200000 },
             { name: "伊佛利特", epoch: 1769565600000 },
             { name: "奧丁", epoch: 1769652000000 },
             { name: "鳳凰", epoch: 1769652000000 }
-        ];
+        */        
 
         const FETE_DURATION = 24 * 60 * 60 * 1000;
         const TOTAL_CYCLE = 72 * 60 * 60 * 1000;
@@ -121,7 +130,7 @@
                         <td class="px-8 py-6 whitespace-nowrap flex items-center h-full">
                             ${statusBadge}${stageTime}
                         </td>
-                        <td class="px-8 py-6 text-right font-mono text-base ${fateColor} tracking-tighter transition-colors duration-500">
+                        <td class="px-8 py-6 text-right font-mono text-sm ${fateColor} tracking-tighter transition-colors duration-500">
                             ${fateDisplay}
                         </td>
                     </tr>
@@ -129,7 +138,7 @@
             });
             document.getElementById('serverTableBody').innerHTML = html;
         }
-
+        
         // 每秒更新一次
         setInterval(update, 1000);
         update();
