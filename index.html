@@ -112,7 +112,7 @@
 
                 if (isFeteActive) {
                     const stageEnd = FETE_DURATION - elapsed;
-                    const nextFate = FATE_INTERVAL - (elapsed % FATE_INTERVAL);
+                    const nextFate = FATE_INTERVAL;
                     statusBadge = `<span class="badge-active px-3 py-1 rounded-full text-xs font-bold">進行中</span>`;
                     stageTime = `<span class="text-slate-400 text-[12px] ml-3 font-mono opacity-80">剩 ${formatDuration(stageEnd)}</span>`;
                     fateDisplay = formatDuration(nextFate);
@@ -147,5 +147,6 @@
 </body>
 
 </html>
+
 
 
